@@ -1,0 +1,271 @@
+<% include partials/header.ejs %>
+    <div class="container-fluid">
+        <form action="/advancedSearch" method="POST">
+            <div class="row">
+                <h2 style="margin-left: 30px;">Advanced Search</h2>
+                <hr style="margin-left: 15px; background: red; height: 2px; border: none; width: 260px;">
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                <hr>
+                <div>
+                    <ul>
+                        <li class="centered"><label>Card Name</label></li>
+                        <li><input id="tagz" type="text" name="name" maxlength="20" autocomplete="off"></li>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <ul>
+                        <li class="centered"><label>Editions</label></li>
+                        <li>
+                            <select name="set" class="sets">
+                                <option value="">All</option>
+                                <% for(var i = 0; i < sets.length; i++){ %>
+                                    <option title="<%= sets[i].name %>" value="<%= sets[i].id %>" style="display: block; font-size: 13px;"><%= sets[i].name.substring(0, 21) %></option>
+                                <% } %>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <ul id="slidingDocks">
+                        <li class="centered"><label id="colors">Colors</label></li>
+                        <div id="hiddenColors" style="display: none;">
+                            <li>
+                                <img class="colorItemL1" src="http://eakett.ca/mtgimage/symbol/mana/b.svg" width="17px">
+                                <img class="colorItemL1" src="http://eakett.ca/mtgimage/symbol/mana/u.svg" width="17px">
+                                <img class="colorItemL1" src="http://eakett.ca/mtgimage/symbol/mana/g.svg" width="17px">
+                                <img class="colorItemL1" src="http://eakett.ca/mtgimage/symbol/mana/r.svg" width="17px">
+                                <img class="colorItemL1" src="http://eakett.ca/mtgimage/symbol/mana/w.svg" width="17px">
+                            </li>
+                            <li>
+                                <input class="colorItemL2" type="checkbox" name="color" style="margin-right: 19px;" value="black">
+                                <input class="colorItemL2" type="checkbox" name="color" style="margin-right: 19px;" value="blue">
+                                <input class="colorItemL2" type="checkbox" name="color" style="margin-right: 19px;" value="green">
+                                <input class="colorItemL2" type="checkbox" name="color" style="margin-right: 19px;" value="red">
+                                <input class="colorItemL2" type="checkbox" name="color" style="margin-right: 19px;" value="white">
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <ul id="slidingDocks">
+                        <li class="centered"><label id="rarity">Rarity</label></li>
+                        <div id="hiddenRarity" style="display: none;">
+                            <li>
+                                <input id="allRarity" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">All</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionRarity" name="rarity" value="mythic" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Mythic</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionRarity" name="rarity" value="rare" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Rare</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionRarity" name="rarity" value="uncommon" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Uncommon</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionRarity" name="rarity" value="common" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Common</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionRarity" name="rarity" value="land" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Land</span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <ul id="slidingDocks">
+                        <li class="centered"><label id="type">Type</label></li>
+                        <div id="hiddenType" style="display: none;">
+                            <li>
+                                <input id="allType" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">All</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionType" name="type" value="artifact" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Artifact</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionType" name="type" value="creature" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Creature</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionType" name="type" value="enchantment" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Enchantment</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionType" name="type" value="instant" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Instant</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionType" name="type" value="basicLand" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Land</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionType" name="type" value="planeswalker" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Planeswalker</span>
+                            </li>
+                            <li>
+                                <input id="itemOptionType" name="type" value="sorcery" class="colorItemL2" type="checkbox">
+                                <span class="colorItemL1">Sorcery</span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <ul id="slidingDocks">
+                        <li class="centered"><label id="powerTough">Power/Toughness</label></li>
+                        <div id="hiddenPower" style="display: none;">
+                            <li>Power</li>
+                            <li>
+                                <span>
+                                    <select name="powerFrom" style="margin-right: 5px;">
+                                        <option></option>
+                                        <% for(var i = 0; i < 16; i++){ %>
+                                            <option><%= i %></option>
+                                        <% } %>
+                                    </select>
+                                    to
+                                    <select name="powerTo" style="margin-left: 5px;">
+                                        <option></option>
+                                        <% for(var i = 0; i < 16; i++){ %>
+                                            <option><%= i %></option>
+                                        <% } %>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>Toughness</li>
+                            <li>
+                                <span>
+                                    <select name="toughnessFrom" style="margin-right: 5px;">
+                                        <option></option>
+                                        <% for(var i = 0; i < 16; i++){ %>
+                                            <option><%= i %></option>
+                                        <% } %>
+                                    </select>
+                                    to
+                                    <select name="toughnessTo" style="margin-left: 5px;">
+                                        <option></option>
+                                        <% for(var i = 0; i < 16; i++){ %>
+                                            <option><%= i %></option>
+                                        <% } %>
+                                    </select>
+                                </span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <ul id="slidingDocks">
+                        <li class="centered"><label id="convertedCost">Converted Cost</label></li>
+                        <div id="hiddenCost" style="display: none;">
+                            <li>
+                                <span>
+                                    <select name="costFrom" style="margin-right: 5px;">
+                                        <option></option>
+                                        <% for(var i = 0; i < 16; i++){ %>
+                                            <option><%= i %></option>
+                                        <% } %>
+                                    </select>
+                                    to
+                                    <select name="costTo" style="margin-left: 5px;">
+                                        <option></option>
+                                        <% for(var i = 0; i < 16; i++){ %>
+                                            <option><%= i %></option>
+                                        <% } %>
+                                    </select>
+                                </span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <hr>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <div class="exterior">
+                      <br>
+                      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                          <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+                    
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                          <div class="item active">
+                            <img src="http://media.wizards.com/2016/WPN/Marketing%20Materials/EN/AER/Multimedia/MTGAER_1920x1080.jpg" alt="Chania">
+                          </div>
+                    
+                          <div class="item">
+                            <img src="https://images1.mtggoldfish.com/featured_images/1674/c16-decklists-featured.jpg" alt="Chania">
+                          </div>
+                        
+                          <div class="item">
+                            <img src="http://magic.wizards.com/sites/mtg/files/images/featured/PCA-Header_Image_0.jpg" alt="Flower">
+                          </div>
+                    
+                          <div class="item">
+                            <img src="https://i.ytimg.com/vi/lsZtmoxScCk/maxresdefault.jpg" alt="Flower">
+                          </div>
+                        </div>
+                    
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+    $( function() {
+      var temppp = [<%- allCards %>];
+      $( "#tagz" ).autocomplete({
+        maxResults: 10,
+        source: function(request, response) {
+          if(request.term.length > 2){
+            var results = $.ui.autocomplete.filter(temppp, request.term);
+            response(results.slice(0, this.options.maxResults));
+          }
+      }
+      });
+    } );
+  </script>
+    <script>
+        $(document).ready(function(){
+            var allHidden = document.querySelectorAll("#slidingDocks");
+            allHidden.forEach(function(each){
+                var centered = each.querySelectorAll(".centered");
+                var child = each.children[1];
+                $(centered).click(function(item){
+                    if($(child).is(":hidden")){
+                        $(child).slideDown(500);
+                    }else{
+                        $(child).slideUp(500);
+                    }
+                });
+            });
+        });
+    </script>
+<% include partials/footer.ejs %>

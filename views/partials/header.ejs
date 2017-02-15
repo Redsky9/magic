@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <!--<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.76, user-scalable=no">-->
+        <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.8, user-scalable=no">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link href="/style.css" rel="stylesheet">
+        <title>MTG Search Portal</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand btn-lg headerLogo" href="/"></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Login/Register</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-left" action="/search" method="GET">
+            <div class="form-group searchBar">
+              <input id="tags" type="text" class="form-control" name="cardName" placeholder="Card Name" maxlength="20" autocomplete="off">
+              <a class="btn-lg" onclick="document.forms[0].submit(); return false;"><i class="glyphicon glyphicon-search"></i></a>
+            </div>
+          </form>
+          <a href="/advancedSearch" class="advancedSearchButton btn btn-link" style="background: transparent; text-decoration: none;">Advanced Search</a>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      var temppp = [<%- allCards %>];
+      $( "#tags" ).autocomplete({
+        maxResults: 10,
+        source: function(request, response) {
+          if(request.term.length > 2){
+            var results = $.ui.autocomplete.filter(temppp, request.term);
+            response(results.slice(0, this.options.maxResults));
+          }
+      }
+      });
+    } );
+  </script>
+
+

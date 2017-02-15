@@ -1,0 +1,21 @@
+<% include partials/header.ejs %>
+    <div class="container">
+        <div class="row">
+            <% for(var i = 0; i < cards.length; i++){ %>
+                <% if(cards[i].editions[0].multiverse_id){ %>
+                    <!--<div class="col-md-4 col-xs-pull-0 col-sm-6 col-xs-12">-->
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 col-xs-offset-0">
+                        <div class="thumbnail">
+                            <div class="titleAndSet">
+                                <p><h3><%= cards[i].name %></h3></p>
+                                <p class="set"><a href="/sets/<%= cards[i].editions[0].set_id %>"><%= cards[i].editions[0].set %></a></p>
+                            </div>
+                            <p><img class="thumbImg" src="<%= cards[i].editions[0].image_url %>"></p>
+                            <p><a href="/<%= cards[i].editions[0].multiverse_id %>/details">Learn more</a></p>
+                        </div>
+                    </div>
+                <% } %>
+            <% }; %>
+        </div>
+    </div>
+<% include partials/footer.ejs %>

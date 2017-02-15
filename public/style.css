@@ -1,0 +1,163 @@
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    color: rgb(14, 49, 113);
+}
+.thumbnail{
+    margin-top: 40px;
+    text-align: center;
+    width: 350px;
+    height: 480px;
+    background: rgb(242, 247, 255);
+}
+.set{
+    color: blue;
+}
+.row{
+    padding-top: 70px;
+    padding-left: 5em;
+}
+.headerLogo{
+    padding-top: 50px;
+    padding-left: 200px;
+    background: transparent url("http://gatherer.wizards.com/images/Redesign/Magic_Logo.png") no-repeat left;
+    background-size: cover;
+}
+.searchBar{
+    position: relative;
+    padding-top: 8px;
+}
+.glyphicon-search{
+    position: relative;
+    left: -47px;
+    top: 5px;
+}
+.thumbImg{
+    min-height: 310px;
+    min-width: 230px;
+    max-height: 410px;
+    max-width: 230px;
+}
+.titleAndSet{
+    height: 4.5em;
+}
+.navbar-form{
+    padding-left: 0;
+}
+.setName{
+    text-align: center;
+    color: rgb(0, 69, 181);
+}
+.btn{
+    border-radius: 0px;
+    border: none;
+    margin: 0 0 10px 0;
+}
+.btn:hover{
+    border-radius: 0px;
+    border: none;
+    background: rgb(232, 234, 237);
+    text-decoration: none;
+}
+.detailImg{
+    height: 400px;
+    max-height: 400px;
+}
+.inline{
+    display: inline-block;
+}
+.inline-details{
+    vertical-align: top;
+    margin-left: 15px;
+}
+table, td, tr, th{
+    border: none!important;
+}
+td{
+    width: 150px;
+    max-width: 300px;
+}
+td:first-letter {
+ text-transform: uppercase;
+}
+.glyphicon-plus{
+    position: relative;
+    left: -62px;
+    top: 5px;
+}
+.advancedSearchButton{
+    position: fixed;
+    left: 420px;
+    top: 15px;
+}
+.advancedSearchButton:focus {
+    outline: 0!important;
+}
+.advancedSearch{
+    position: fixed;
+    padding-top: 15px;
+    margin-left: 100px;
+}
+li{
+    list-style: none;
+}
+.colorItemL1{
+    position: relative;
+    margin-right: 15px;
+}
+.colorItemL2{
+    width: 14px;
+    height: 14px;
+}
+.sets{
+    width: 174px;
+    size: 10;
+}
+.itemRow{
+    padding-top: 10px;
+}
+.listElementz{
+    display: inline;
+}
+span.colorItemL1{
+    left: 6px;
+    bottom: 2px;
+}
+hr{
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 220px;
+    position: relative;
+    border-color: rgb(173, 204, 255);
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 88%;
+      /*height: 520px;*/
+      height: 75%;
+      margin: auto;
+}
+.carousel-control{
+    width: 0;
+}
+.glyphicon-chevron-left{
+    padding-left: 100px;
+}
+.glyphicon-chevron-right{
+    padding-right: 130px;
+}
+.exterior{
+    padding-bottom: 20px;
+    margin-top: -45px;
+    margin-left: -50px;
+}
+.ui-menu{
+    padding-top: 14px;
+    font-size: 13px;
+}
+html{
+    overflow: scroll;
+}
+.col-sm-12{
+    margin-bottom: 35px;
+}

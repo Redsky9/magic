@@ -1,0 +1,50 @@
+<% include partials/header.ejs %>
+
+    <div class="container">
+        <div class="row">
+            <div class="details">
+                <p><h3 class="detailTitle"><%= cards[0].editions[0].set %> : <%= cards[0].name %></h3></p>
+                <div class="toAccount">
+                    <button class="btn btn-link" href="#"><span class="glyphicon glyphicon-star"></span>Add to collection</button>
+                </div>
+                <div class="inline">
+                    <p><img class="detailImg" src="<%= cards[0].editions[0].image_url %>"></p>
+                </div>
+                <div class="inline inline-details">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Edition:</td>
+                                <td><a href="/sets/<%= cards[0].editions[0].set_id %>"><%= cards[0].editions[0].set %></a></td>
+                            </tr>
+                            <tr>
+                                <td>Type:</td>
+                                <td><%= cards[0].types[0] %></td>
+                            </tr>
+                            <tr>
+                                <td>Cost:</td>
+                                <td><%- cards[0].cost %></td>
+                            </tr>
+                            <tr>
+                                <td>Type:</td>
+                                <td><%= cards[0].editions[0].rarity.substr(0,1) %></td>
+                            </tr>
+                            <% if(cards[0].power){ %>
+                                <tr>
+                                    <td>Pow/Tou:</td>
+                                    <td><%= cards[0].power %> / <%= cards[0].toughness %></td>
+                                </tr>
+                            <% } %>
+                            <tr>
+                                <td colspan="2"><%- cards[0].text %></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><em><%- cards[0].editions[0].flavor %></em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<% include partials/footer.ejs %>
